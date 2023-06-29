@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ERROR 404</title>
+    <style>
+      /* @font-face {
+      font-family: 'VCR OSD Mono';
+      font-style: normal;
+      font-weight: normal;
+      src: local('VCR OSD Mono'), url('assets/fontVCR.woff') format('woff');
+      } */
+      body {
+        user-select: none;
+        color: white;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      a:hover {
+        color: grey;
+      }
+      .camera-hud {
+        font-family: 'VCR OSD Mono';
+        font-size: 3em;
+        background-color: black;
+        width: auto;
+        height: auto;
+        z-index: 4;
+        left: 1em;
+        position: fixed;
+      }
+      .camera-info {
+        font-family: 'VCR OSD Mono';
+        font-size: 1.5em;
+        width: auto;
+        height: auto;
+        z-index: 4;
+        line-height: 1.25em;
+        top: 2em;
+        right: 2em;
+        text-shadow: 0.125em 0.125em black;
+        text-align: right;
+        position: fixed;
+      }
+      #camera-name {
+        bottom: 1em;
+        cursor: pointer;
+      }
+      #camera-name:hover {
+        color: gray;
+      }
+      #camera-time {
+        top: 1em;
+      }
+      #camera-image {
+        animation: contrastflash 3s ease-out;
+      }
+      #camera-static-idle {
+        animation: staticidle 0.5s infinite;
+
+        animation-timing-function: step-start;
+        z-index: 5;
+      }
+      #camera-static {
+        opacity: 0%;
+        box-shadow: 0 0 4vw 1vw #333;
+        animation: staticblip 20s infinite, staticflash 0.5s;
+        animation-timing-function: step-start;
+        z-index: 3;
+      }
+      .camera-container img {
+        width: 100%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .camera-container button {
+        width: 30%;
+        height: 20%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .MAIN {
+        width: 1000px;
+        height: auto;
+        position: fixed;
+        font-size: 3em;
+        text-align: center;
+        left: 50%;
+        top: 58%;
+        text-shadow: 0.125em 0.125em black;
+        border: 2px solid rgb(100,220,220);
+        /* background-color: red; */
+        transform: translate(-50%, -50%);
+      }
+      .under {
+        width: auto;
+        height: auto;
+        position: fixed;
+        left: 50%;
+        top: 95%;
+        text-align: center;
+        text-shadow: 0.125em 0.125em black;
+        /* background-color: black; */
+        transform: translate(-50%, -50%);
+      }
+      @keyframes contrastflash {
+        0% { filter: contrast(4) brightness(0.5) }
+        100% { filter: contrast(1) brightness(1) }
+      }
+      @keyframes staticflash {
+        0% { opacity: 100%; }
+        10% { opacity: 90%; }
+        20% { opacity: 100%; }
+        50% { opacity: 90%; }
+        40% { opacity: 60%; }
+        50% { opacity: 50%; }
+        60% { opacity: 20%; }
+        80% { opacity: 15%; }
+        100% { opacity: 0%; }
+      }
+      @keyframes staticidle {
+        0% { opacity: 20%; }
+        20% { opacity: 23%; }
+        50% { opacity: 20%; }
+        75% { opacity: 24%; }
+        100% { opacity: 20%; }
+      }
+      @keyframes staticblip {
+        0% { opacity: 0%; }
+        20.5% { opacity: 0%; }
+        21% { opacity: 90%; }
+        22.5% { opacity: 70%; }
+        23.5% { opacity: 0%; }
+        24% { opacity: 30%; }
+        25% { opacity: 0%; }
+        27% { opacity: 0%; }
+        50% { opacity: 10%; }
+        50.5% { opacity: 20%; }
+        51% { opacity: 0%; }
+        52% { opacity: 40%; }
+        53% { opacity: 40%; }
+        54% { opacity: 0%; }
+        66.5% { opacity: 0%; }
+        67.5% { opacity: 100%; }
+        68.5% { opacity: 100%; }
+        70% { opacity: 100%; }
+        70.5% { opacity: 50%; }
+        71% { opacity: 0%; }
+        100% { opacity: 0%; }
+      }
+    </style>
+    <script type="text/javascript", src="cameras.json"></script>
+    <script type="text/javascript", src="script.js"></script>
+    <link rel="icon" href="assets/satou 6.png">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body onload="init()">
+    <div class="camera-container">
+      <!-- <img src="/assets/Glitch.mp4"> -->
+      <img id="camera-image">
+      <!-- <span class="camera-hud" id="camera-name" onclick="changeCameraScreen()">1/?</span> -->
+      <!-- <span class="camera-hud" id="camera-time">ERROR743q84qo</span> -->
+      <!-- <span class="camera-info">YOUR GOT CAUGHT<br> </span> -->
+      <img src="assets/glitch-edgy.gif" id="camera-static">
+      <img src="assets/glitch-static.gif" id="camera-static-idle">
+    </div>
+    <div class="under">     
+        <span> ♥ - Created by WXYY - ♥ </span>
+        <!-- <a href="https://www.instagram.com/wxyy.agd"> ♥ - Created by WXYY.AGD - ♥ </a><br> -->
+        <div class="clock">
+            <h1 id="current-time"></h1>
+        </div>
+    </div>
+    <div class="konten">
+        <div class="main">
+            <div class="content">
+                <h2 class="text" data-text="3R50R4o4">ERROR 404</h2>
+            </div>
+        </div>
+        <div class="MAIN">       
+            <div>
+                <span class="sub">PAY OR DIE</span>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+<script>
+    let time = document.getElementById("current-time");
+
+    setInterval(() =>{
+        let d = new Date();
+        time.innerHTML = d.toLocaleTimeString();
+    }, 1000)
+
+</script>
